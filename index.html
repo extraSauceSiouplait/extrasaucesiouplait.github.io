@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8"> 
+        
+        <!-- Css pour table de données -->
+        <link rel="stylesheet" href="./jquery.dataTables.min.css">
+    
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="./bootstrap.min.css">
+        
+        <!-- Fontawesome link -->
+        <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+        
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="autocomplete.js"></script>
+        <script src="dataTableStations.js"></script>
+        
+  </head>
+    
+<!-- BARRE DE NAVIGATION -->
+    <nav>
+        <div class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Vélo Montréal</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Accueil</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><i class="fa fa-globe" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+<body>
+<!-- TABS -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#carte">Carte des stations</a>  </li>
+            <li><a data-toggle="tab"  href="#listeDesStations">Liste des stations</a></li>
+        </ul>
+
+        <div class="tab-content">
+            
+            <!--_______LISTE DES STATIONS_________--> 
+            <div id="carte" class="tab-pane fade in active">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" placeholder="Nom de la station" >
+                        </div>
+                        <div class="col-sm-8">Deuxième colonne</div>
+                    </div>
+              
+                </div>
+            </div>
+            
+            <!-- ________LISTE DES STATIONS_______ -->  
+            <div id="tableStations" class="tab-pane fade">
+                <h3>Liste des stations</h3>
+                <div class="container">
+                    <h2>Hover Rows</h2>
+                    <p>The .table-hover class enables a hover state on table rows:</p>            
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>john@example.com</td>
+                            </tr>
+                            <tr>
+                                <td>Mary</td>
+                                <td>Moe</td>
+                                <td>mary@example.com</td>
+                            </tr>
+                            <tr>
+                                <td>July</td>
+                                <td>Dooley</td>
+                                <td>july@example.com</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
