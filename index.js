@@ -33,16 +33,16 @@ $.ajax({
 });
 
 $("autocomplete").autocomplete({
-    source: function(request, response){
-        response($.ui.autocomplete.filter(stations , $('#autocomplete').val()));
+    source: function(request, reponse){
+        reponse($.ui.autocomplete.filter(stations , $('#autocomplete').val()));
     },
-    minLenght: 1,
+    minLenght: 2,
 
     select: function(event, ui) {
         $(".intersectionRues .nomStation").text(ui.item.label);
         $.ajax({
             url: 'https://secure.bixi.com/data/stations.json',
-            dataType = 'json',
+            dataType: 'json',
             success: function(data){
                 var stations = data.stations.find(function(item){
                     return item.s;
