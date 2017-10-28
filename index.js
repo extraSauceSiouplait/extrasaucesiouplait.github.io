@@ -56,7 +56,7 @@ $("#autocomplete").autocomplete("widget").addClass("autocomplete-results");
 
 
 
-$(selector).on('click', function(){
+$('.nav-tabs li').on('click', function(){
     $(selector).removeClass('active');
 	$(this).addClass('active');
 
