@@ -24,7 +24,12 @@ $(document).ready(function() {
 */
 
 $("autocomplete").autocomplete({
-    source: function(event, ui) {
+    source: function(request, response){
+        response($.ui.autocomplete.filter(stations , $('#autocomplete').val()));
+    },
+    minLenght: 1,
+
+    select: function(event, ui) {
         $(".intersectionRues .nomStation").text(ui.item.label);
         $ajax({
             url: 'https://secure.bixi.com/data/stations.json',
@@ -37,3 +42,5 @@ $("autocomplete").autocomplete({
         })
     }
 });
+
+$("#autocomplete").autocomplete("widget").addClass("autocomplete-results");
