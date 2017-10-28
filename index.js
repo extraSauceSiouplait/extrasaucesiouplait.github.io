@@ -53,3 +53,35 @@ $("autocomplete").autocomplete({
 });
 
 $("#autocomplete").autocomplete("widget").addClass("autocomplete-results");
+
+
+
+$(selector).on('click', function(){
+    $(selector).removeClass('active');
+	$(this).addClass('active');
+
+	if(this.id === "toggleListeStations") {
+		unloadListeStations();
+		loadCarteStations();
+	}
+	else {
+		loadListeStations();
+		unloadCarteStations();
+	}
+});
+
+function loadCarteStations() {
+	$('.carteStations').show();
+}
+
+function unloadCarteStations() {
+	$('.carteStations').hide();
+}
+
+function loadListeStations() {
+	$('.listeStations').show();
+}
+
+function unloadListeStations() {
+	$('.listeStations').hide();
+}
