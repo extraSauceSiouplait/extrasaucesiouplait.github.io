@@ -27,7 +27,7 @@ $.ajax({
 	url: 'https://secure.bixi.com/data/stations.json',
 	dataType: 'json',
 	success: function(data){
-        stationsFull = data
+        stationsFull = data;
 		stationsNoms = $.map(data.stations, function(item){ return item.s; });
 	}
 });
@@ -40,7 +40,7 @@ $("autocomplete").autocomplete({
 
     select: function(event, ui) {
         $(".intersectionRues .nomStation").text(ui.item.label);
-        $ajax({
+        $.ajax({
             url: 'https://secure.bixi.com/data/stations.json',
             dataType = 'json',
             success: function(data){
