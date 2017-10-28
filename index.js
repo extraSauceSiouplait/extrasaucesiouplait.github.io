@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 var stations;
+var stationsFull;
 /*
 $(document).ready(function() {
     $.ajax({
@@ -22,6 +23,14 @@ $(document).ready(function() {
     );
 });
 */
+$.ajax({
+	url: 'https://secure.bixi.com/data/stations.json',
+	dataType: 'json',
+	success: function(data){
+        stationsFull = data
+		stationsNoms = $.map(data.stations, function(item){ return item.s; });
+	}
+});
 
 $("autocomplete").autocomplete({
     source: function(request, response){
