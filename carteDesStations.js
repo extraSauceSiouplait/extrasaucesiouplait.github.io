@@ -91,7 +91,8 @@ function changeColorTag(elementToModify,newValue){
 
 //
 // NE FONCTIONNE PAS!!
-///*
+//
+/*
 $(document).ready(function() {	
     $('#TableStations').DataTable( {
 		"processing": true,
