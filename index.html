@@ -6,11 +6,11 @@
         <!-- Css pour table de données -->
         <link rel="stylesheet" href="./jquery.dataTables.min.css">
     
-        <!-- Latest compiled and minified CSS Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="./bootstrap.min.css">
         
         <!-- Fontawesome link -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
         
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -21,7 +21,20 @@
         <link rel="stylesheet" href="/resources/demos/style.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="./index.js"></script>
+        <script src="carteDesStations.js"></script>
+      
+      
+        <link rel="stylesheet" type="text/css" href="siteBixi.css">
+      
+        <!-- Carte de la ville -->
+        <script async defer src="carteDesStations.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjonwWBWoE1W6L8sU7KPl7zkRLSaPNC2o&callback=initMap" async defer></script>
+      
+        <!-- Tableau complet des station< -->
+       <script async defer src="dataTableStations.js"></script>
+       <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+       <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+       
         
   </head>
     
@@ -44,60 +57,86 @@
     
 <body>
 <!-- TABS -->
-        <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#carte">Carte des stations</a>  </li>
-            <li><a data-toggle="tab"  href="#listeDesStations"  id="toggleListeStation">Liste des stations</a></li>
-        </ul>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#carte">Carte des stations</a>  </li>
+        <li><a data-toggle="tab"  href="#listeDesStations">Liste des stations</a></li>
+    </ul>
 
-        <div class="tab-content">
-            
-            <!--_______LISTE DES STATIONS_________--> 
-            <div id="carte" class="tab-pane fade in active">
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <input type="text" placeholder="Nom de la station" class="form-control ui-autocomplete-input" id="autocomplete" autocomplete="off" >
-                        </div>
-                        <div class="col-sm-8">Deuxième colonne</div>
+    <div class="tab-content">
+
+        <!--_______LISTE DES STATIONS_________--> 
+        <div id="carte" class="tab-pane fade in active">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input type="text" id="autocomplete" class="form-control" placeholder="Nom de la station" >
+                        <h2>Localisation :</h2>
+                        <hr>
+                        <p id="localisation">Station choisie</p>
                     </div>
-              
+                    <div class="col-sm-7 grid-divider">
+                        <h2>Etat de la station de vélos</h2>
+                        <table class="table table-stripped table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>ID Station
+                                    <span class="couleurEtatStation" id="stationId">-</span>
+                                    </td>
+                                    <td>Vélos disponibles
+                                    <span class="couleurEtatStation" id="velosRestants">-</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Bloquée
+                                    <span class="couleurEtatStation" id="estBloque">-</span></td>
+                                    <td>Bornes disponibles
+                                    <span class="couleurEtatStation" id="bornesRestants">-</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Suspendue
+                                    <span class="couleurEtatStation" id="estStationSuspendue">-</span></td>
+                                    <td>Vélos indisponibles
+                                    <span class="couleurEtatStation" id="velosHorsServices">-</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Hors service
+                                    <span class="couleurEtatStation" id="estStationHorsService">-</span></td>
+                                    <td>Bornes indisponibles
+                                    <span class="couleurEtatStation" id="bornesHorsServices">-</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    
                 </div>
             </div>
-            
-            <!-- ________LISTE DES STATIONS_______ -->  
-            <div id="tableStations" class="tab-pane fade">
-                <h3>Liste des stations</h3>
-                <div class="container">
-                    <h2>Hover Rows</h2>
-                    <p>The .table-hover class enables a hover state on table rows:</p>            
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Firstname</th>
-                                <th>Lastname</th>
-                                <th>Email</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>John</td>
-                                <td>Doe</td>
-                                <td>john@example.com</td>
-                            </tr>
-                            <tr>
-                                <td>Mary</td>
-                                <td>Moe</td>
-                                <td>mary@example.com</td>
-                            </tr>
-                            <tr>
-                                <td>July</td>
-                                <td>Dooley</td>
-                                <td>july@example.com</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <!-- ________Carte de la ville_______ --> 
+            <div class="carteDeLaVille">
+                <div id="map"></div>
             </div>
         </div>
+
+        <!-- ________LISTE DES STATIONS_______ -->  
+        <div id="listeDesStations" class="tab-pane fade">
+            <div class="container">
+                <h2>Etat des stations de vélo</h2>
+                
+                <table id="TableStations" class="dataTable" cellspacing="0" width="100%">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nom de la station</th>
+                    <th>Vélos disponibles</th>
+                    <th>Bornes disponibles</th>
+                    <th>Etat bloqué</th>
+                    <th>Etat suspendu</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
