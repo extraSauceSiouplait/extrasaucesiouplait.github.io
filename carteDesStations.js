@@ -21,7 +21,7 @@ $.ajax({
 	dataType: 'json',
 	success: function(data){
 	
-	stationsFull = $.map(data.stations, function(item){return item});  // Pour l'onglet table complete des stations
+	/*stationsFull = $.map(data.stations, function(item){return item});*/  // Pour l'onglet table complete des stations
 
     $(data.stations).each(function(index, value)
 	{
