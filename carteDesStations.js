@@ -60,7 +60,7 @@ $.ajax({
 	}
 });
 
-/*$("#autocomplete").autocomplete("widget").addClass("autocomplete-results");*/
+$("#autocomplete").autocomplete("widget").addClass("autocomplete-results");
 
 function changeColorTag(elementToModify,newValue){
 	if(typeof(newValue) === "boolean"){	
