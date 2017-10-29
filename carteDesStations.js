@@ -21,7 +21,7 @@ $.ajax({
 	dataType: 'json',
 	success: function(data){
 	
-	/*stationsFull = $.map(data.stations, function(item){return item});*/  // Pour l'onglet table complete des stations
+	stationsFull = data;  // Pour l'onglet table complete des stations
 
     $(data.stations).each(function(index, value)
 	{
@@ -60,7 +60,7 @@ $.ajax({
 	}
 });
 
-$("#autocomplete").autocomplete("widget").addClass("autocomplete-results");
+/*$("#autocomplete").autocomplete("widget").addClass("autocomplete-results");*/
 
 function changeColorTag(elementToModify,newValue){
 	if(typeof(newValue) === "boolean"){	
@@ -88,11 +88,10 @@ function changeColorTag(elementToModify,newValue){
 
 	}
 }
-
+/*
 //
 // NE FONCTIONNE PAS!!
 //
-/*
 $(document).ready(function() {	
     $('#TableStations').DataTable( {
 		"processing": true,
