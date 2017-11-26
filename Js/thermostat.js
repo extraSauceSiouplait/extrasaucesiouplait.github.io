@@ -82,8 +82,8 @@ var Observateur = class Observateur {
 var thermometre = new Observateur;
 
 thermometre.update = function(isChauffage, temperatureActuelle) {
-	temperatureActuelle = Math.floor(temperatureActuelle);	
-    $("#valeurThermomètre").text(temperatureActuelle);
+	var temperatureAfficher = Math.floor(temperatureActuelle);	
+    $("#valeurThermomètre").text(temperatureAfficher);
     $("#jaugeThermometre").css("height", String(tailleThermometre)).css("top", String(positionThermometre));  
 };
 

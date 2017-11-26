@@ -34,7 +34,7 @@
 #jaugeThermometre{  
     -moz-orient:vertical;
     margin:auto;
-    margin-left:40px;
+    margin-left:50%;
     background: white;
     width:20px;
 }
