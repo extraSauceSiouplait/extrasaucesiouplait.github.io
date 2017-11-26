@@ -1,0 +1,66 @@
+/* FENETRE DES STYLES EN CSS POUR L'APPLICATION DU THERMOMETRE */
+
+
+/* Fenetre principale */
+.fenetre{  
+    height:400px;
+    width:800px;
+    background:  #e0e0e0
+}
+
+/* ------------Colonne Thermomètre ----------- */
+/* Position du div du thermomètre */
+.thermometrePane{  
+    margin:auto;
+    transform:translateY(15%);  
+}
+
+/* Caractéristiques du thermomètre */
+::-moz-meter-bar{
+    display: inline-block;
+    float: none ;
+    position: static;
+    overflow: visible;
+    
+    -moz-appearance: meterchunk;
+    height: 100%;
+    width: 100%;
+    
+    /* Remplissage rouge */
+    background: -moz-linear-gradient(bottom, #f2738c, #DC143C 50%, #a30f2d 100%);
+}
+
+
+#jaugeThermometre{  
+    -moz-orient:vertical;
+    margin:auto;
+    margin-left:40px;
+    background: white;
+    width:20px;
+}
+
+/* ------------- Colonne Informations ------------- */
+.infoCentre{
+    width:49%;
+    display:inline-block;
+    margin:auto;  
+}
+
+
+.containerCentre{   
+    margin:auto;
+    transform: translateY(200%)  
+}
+
+
+.dataCentre{   
+    width:auto;   
+}
+
+
+/* ----------- Colonne Thermostat ---------------- */
+#thermostat{
+    height: 300px;
+    position:relative;
+    transform:translateY(15%);   
+}

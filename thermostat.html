@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8"> 
+    
+    <!-- jQuery and jQuery UI scripts -->
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+    <!-- jQuery UI theme -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
+    
+    <!-- BOOOOOOOOOTSTRAP -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <!-- custom Js files -->
+    <script src="Js/chambre.js"></script>
+    <script src="Js/thermostat.js"></script>
+    
+    <!-- Jquery slider pips -->
+    <script src="Js/jquery-ui-slider-pips.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui-slider-pips.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/thermostat.css">
+    
+    
+  </head>   
+  
+  <body>
+        <div style="height:100px"></div>
+        <div class="container fenetre">
+            <div class="row">
+                <!-- Séparation en trois colonne -->
+                <!-- Colonne jauge thermomètre -->
+                <div class="col-sm-3">
+                    <div class="thermometrePane">
+                        <meter min="-50" max="50" id="jaugeThermometre"></meter>
+                        <div>Thermomètre</div>
+                    </div>   
+                </div>
+                
+                
+                <!-- Colonne Informations -->
+                <div class="col-sm-6">
+                    <div class="containerCentre">
+                        <div class="infoCentre">
+                            <div>Chauffage</div>
+                            <div>Température extérieure</div>
+                            <div>Thermostat</div>
+                            <div>Temperature Interieure</div>
+                        </div>
+                        <div class="infoCentre dataCentre">
+                            <div id="chauffageActif">null</div>
+                            <div id="tempExterieure">null</div>
+                            <div id="tdValeurThermostat">null</div>
+                            <div id="tempInterieure"></div>
+                        </div>  
+                    </div>    
+                </div>  
+                
+                
+                <!-- Colonne Thermostat-->
+                <div class="col-sm-3">
+                    <div id="thermostat"></div>
+                    <div style="margin-top: 50px">Thermostat</div>
+                </div>
+            </div>
+        </div>
+  </body> 
+</html>
